@@ -1,0 +1,96 @@
+:root {
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0ea5a4;
+  --danger:#ef4444;
+  --glass: rgba(255,255,255,0.6);
+}
+* { box-sizing:border-box }
+html,body { height:100% }
+body {
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:#0f172a;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.top { display:flex; align-items:center; justify-content:space-between; gap:12px }
+.top h1 { margin:0; font-size:1.2rem }
+.subtitle { margin:0; color:var(--muted); font-size:0.9rem }
+.controls { display:flex; align-items:center; gap:8px }
+.controls button {
+  padding:8px 10px;
+  border-radius:8px;
+  border:0;
+  background:var(--accent);
+  color:white;
+  cursor:pointer;
+}
+.controls .small-toggle { font-size:0.85rem; color:var(--muted) }
+
+.grid { display:grid; grid-template-columns:repeat(12,1fr); gap:16px }
+.card {
+  background:var(--card);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(11,15,22,0.06);
+}
+.metrics { grid-column:span 4 }
+.chart { grid-column:span 8 }
+.table { grid-column:span 6 }
+.policies { grid-column:span 6 }
+
+.metrics-row { display:flex; gap:12px; margin-top:8px }
+.metric {
+  flex:1;
+  background:linear-gradient(180deg,#fff,#fbfdfe);
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+}
+.metric .value { font-weight:700; font-size:1.1rem }
+.metric .label { font-size:0.85rem; color:var(--muted) }
+
+.suggestion {
+  margin-top:12px;
+  padding:10px;
+  border-radius:8px;
+  background:var(--glass);
+  color:var(--muted);
+}
+table { width:100%; border-collapse:collapse; margin-top:12px }
+thead th {
+  text-align:left;
+  padding:8px;
+  border-bottom:1px solid #eef2f7;
+  color:var(--muted);
+}
+tbody td {
+  padding:8px;
+  border-bottom:1px dashed #f1f5f9;
+}
+.foot {
+  text-align:center;
+  color:var(--muted);
+  font-size:0.85rem;
+  padding:8px;
+}
+
+@media (max-width:900px) {
+  .metrics, .chart, .table, .policies { grid-column:span 12 }
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg:#0b1220;
+  --card:#071122;
+  --muted:#9aa7b2;
+  --accent:#38bdf8;
+  --glass: rgba(255,255,255,0.03);
+  color:#e6eef6;
+}
+[data-theme="dark"] table thead th { color:#9aa7b2 }
