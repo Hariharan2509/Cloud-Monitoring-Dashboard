@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud Monitoring Dashboard — SDG12 Responsible Consumption</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Cloud Monitoring Dashboard</h1>
+    <p class="subtitle">SDG 12 — Responsible Consumption & Production (simulated data)</p>
+    <div class="controls">
+      <button id="toggleStream">Pause</button>
+      <button id="exportCsv">Export CSV</button>
+      <label class="small-toggle">Theme
+        <input id="themeToggle" type="checkbox">
+      </label>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card metrics">
+      <h2>Quick Metrics</h2>
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="value" id="energy">-- kWh</div>
+          <div class="label">Energy consumption (last hr)</div>
+        </div>
+        <div class="metric">
+          <div class="value" id="carbon">-- gCO₂eq</div>
+          <div class="label">Carbon intensity</div>
+        </div>
+        <div class="metric">
+          <div class="value" id="util">-- %</div>
+          <div class="label">Avg resource utilization</div>
+        </div>
+      </div>
+      <div class="suggestion" id="suggestion">Loading suggestions...</div>
+    </section>
+
+    <section class="card chart">
+      <h2>Energy Trend (simulated)</h2>
+      <canvas id="energyChart" width="800" height="240"></canvas>
+    </section>
+
+    <section class="card chart">
+      <h2>Carbon Intensity</h2>
+      <canvas id="carbonChart" width="800" height="240"></canvas>
+    </section>
+
+    <section class="card table">
+      <h2>Top Consumers</h2>
+      <table id="consumersTable">
+        <thead>
+          <tr><th>Resource</th><th>Region</th><th>Energy (kWh)</th><th>Carbon (g)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card policies">
+      <h2>SDG12 Actions</h2>
+      <ul>
+        <li>Use spot instances & right-size VMs to reduce wasted compute.</li>
+        <li>Schedule non-critical workloads to night-time when renewable share often higher.</li>
+        <li>Adopt autoscaling and utilization-based autosuspend.</li>
+        <li>Monitor and set energy/carbon budgets with alerts.</li>
+      </ul>
+      <small>Tip: connect real telemetry and replace simulated data in <code>script.js</code>.</small>
+    </section>
+  </main>
+
+  <footer class="foot">Repository: <code>cloud-monitor-sdg12-mini</code> • Demo-ready (static files)</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
